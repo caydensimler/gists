@@ -1,11 +1,6 @@
 <?php
 
 function register_cpt_impact_report() {
-
-	/**
-	 * Post Type: Impact Reports.
-	 */
-
 	$labels = [
 		"name" => __( "Impact Reports", "starter-theme" ),
 		"singular_name" => __( "Report", "starter-theme" ),

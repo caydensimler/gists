@@ -1,0 +1,57 @@
+<?php
+
+function register_cpt_testimonials() {
+	$labels = array(
+		"name" => __( "Testimonials", "gpc" ),
+		"singular_name" => __( "Testimonial", "gpc" ),
+		"menu_name" => __( "Testimonials", "gpc" ),
+		"all_items" => __( "All Testimonials", "gpc" ),
+		"add_new" => __( "Add New", "gpc" ),
+		"add_new_item" => __( "Add New Testimonial", "gpc" ),
+		"edit_item" => __( "Edit Testimonial", "gpc" ),
+		"new_item" => __( "New Testimonial", "gpc" ),
+		"view_item" => __( "View Testimonial", "gpc" ),
+		"view_items" => __( "View Testimonials", "gpc" ),
+		"search_items" => __( "Search Testimonial", "gpc" ),
+		"not_found" => __( "No Testimonials found", "gpc" ),
+		"not_found_in_trash" => __( "No Testimonials found in Trash", "gpc" ),
+		"parent_item_colon" => __( "Parent Testimonial:", "gpc" ),
+		"featured_image" => __( "Featured image for this testimonial", "gpc" ),
+		"set_featured_image" => __( "Set featured image for this testimonial", "gpc" ),
+		"remove_featured_image" => __( "Remove featured image for this testimonial", "gpc" ),
+		"use_featured_image" => __( "Use as featured image for this testimonial", "gpc" ),
+		"archives" => __( "Testimonial archives", "gpc" ),
+		"insert_into_item" => __( "Insert into testimonial", "gpc" ),
+		"uploaded_to_this_item" => __( "Uploaded to this testimonial", "gpc" ),
+		"filter_items_list" => __( "Filter testimonial list", "gpc" ),
+		"items_list_navigation" => __( "Testimonials list navigation", "gpc" ),
+		"items_list" => __( "Testimonials list", "gpc" ),
+		"attributes" => __( "Testimonials Attributes", "gpc" ),
+		"parent_item_colon" => __( "Parent Testimonial:", "gpc" ),
+	);
+	$args = array(
+		"label" => __( "Testimonials", "gpc" ),
+		"labels" => $labels,
+		"description" => "",
+		"public" => true,
+		"publicly_queryable" => true,
+		"show_ui" => true,
+		"delete_with_user" => false,
+		"show_in_rest" => true,
+		"rest_base" => "",
+		"rest_controller_class" => "WP_REST_Posts_Controller",
+		"has_archive" => false,
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"exclude_from_search" => true,
+		"capability_type" => "post",
+		"map_meta_cap" => true,
+		"hierarchical" => false,
+		"rewrite" => array( "slug" => "testimonials", "with_front" => false ),
+		"query_var" => true,
+		"menu_icon" => "dashicons-editor-quote",
+		"supports" => [ "title", "editor", "thumbnail", "excerpt", "trackbacks", "custom-fields", "comments", "revisions", "author", "page-attributes", "post-formats" ],
+	);
+	register_post_type( "testimonials", $args );
+}
+add_action( 'init', 'register_cpt_testimonials' );
